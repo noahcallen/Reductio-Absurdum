@@ -1,4 +1,6 @@
-namespace Product
+namespace Reductio;
+
+public class Products
 {
 
-}//close namespace
+}
