@@ -138,13 +138,42 @@ public class MenuFunction
 
       Console.WriteLine("Product updated successfully!");
       Console.WriteLine("-----------------------------------");
-  }
+  }//close choice 4
 
 
-  public static void choice4(List<Products> products)
-  {
-    Console.WriteLine("4");
-  }//close choice4
+    public static void choice4(List<Products> products)
+    {
+        Console.Write("Enter the Product ID of the product you want to remove: ");
+        if (!int.TryParse(Console.ReadLine(), out int productId))
+        {
+            Console.WriteLine("Invalid Product ID. Please use a numeric value.");
+            return;
+        }
+
+        // Find the product by ID
+        Products productToRemove = products.Find(p => p.ProductId == productId);
+
+        if (productToRemove == null)
+        {
+            Console.WriteLine("Product not found. Please check the Product ID.");
+            return;
+        }
+
+        // Confirm removal
+        Console.WriteLine($"Are you sure you want to remove '{productToRemove.Name}'? (yes/no): ");
+        string confirmation = Console.ReadLine()?.ToLower();
+
+        if (confirmation == "yes")
+        {
+            products.Remove(productToRemove);
+            Console.WriteLine("Product removed successfully!");
+        }
+        else
+        {
+            Console.WriteLine("Product removal canceled.");
+        }
+    }//close choice4
+
 
   public static void choice5(List<Products> products)
   {
