@@ -3,10 +3,11 @@ using Options;
 using System;
 using System.Collections.Generic;
 
+namespace MainConsole;
 public class Program
 {
-  
-  List<Products> products = new List<Products>
+
+   List<Products> products = new List<Products>
   {
     new Products {Name = "Great Wood", Price = 12.65M, IsAvailable = true, ProductId = 360,ProductType = new ProductType {Name = "Wand", Id = 1}},
     new Products {Name = "Scary Book", Price = 5.80M, IsAvailable = false, ProductId = 457, ProductType = new ProductType {Name = "Enchanted Item", Id = 2}},
@@ -17,6 +18,7 @@ public class Program
   public static void Main()
   {
 
+    Program program = new Program();
     MenuFunction menuFunction = new MenuFunction();
 
     do
@@ -33,23 +35,24 @@ public class Program
     switch (menuFunction.userChoice)
     {
       case 1:
-      MenuFunction.choice1();
+      
+      MenuFunction.choice1(program.products);
       break;
 
       case 2:
-      MenuFunction.choice2();
+      MenuFunction.choice2(program.products);
       break;
 
       case 3:
-      MenuFunction.choice3();
+      MenuFunction.choice3(program.products);
       break;
 
       case 4:
-      MenuFunction.choice4();
+      MenuFunction.choice4(program.products);
       break;
 
       case 5:
-      MenuFunction.choice5();
+      MenuFunction.choice5(program.products);
       break;
     }//close switch
 
