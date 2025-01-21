@@ -35,7 +35,6 @@ public class Program
     switch (menuFunction.userChoice)
     {
       case 1:
-      
       MenuFunction.choice1(program.products);
       break;
 
