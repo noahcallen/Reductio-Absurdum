@@ -79,8 +79,67 @@ public class MenuFunction
 
   public static void choice3(List<Products> products)
   {
-    Console.WriteLine("3");
-  }//close choice3
+      Console.Write("Enter the Product ID of the product you want to update: ");
+      if (!int.TryParse(Console.ReadLine(), out int productId))
+      {
+          Console.WriteLine("Invalid Product ID. Please use a numeric value.");
+          return;
+      }
+
+      // Find the product by ID
+      Products productToUpdate = products.Find(p => p.ProductId == productId);
+
+      if (productToUpdate == null)
+      {
+          Console.WriteLine("Product not found. Please check the Product ID.");
+          return;
+      }
+
+      Console.WriteLine($"Updating Product: {productToUpdate.Name}");
+
+      // Update Product Name
+      Console.Write($"Enter new name (or press Enter to keep '{productToUpdate.Name}'): ");
+      string newName = Console.ReadLine();
+      if (!string.IsNullOrEmpty(newName))
+      {
+          productToUpdate.Name = newName;
+      }
+
+      // Update Product Price
+      Console.Write($"Enter new price (or press Enter to keep {productToUpdate.Price}): ");
+      string newPriceInput = Console.ReadLine();
+      if (!string.IsNullOrEmpty(newPriceInput) && decimal.TryParse(newPriceInput, out decimal newPrice))
+      {
+          productToUpdate.Price = newPrice;
+      }
+
+      // Update Product Availability
+      Console.Write($"Is the product available? (yes/no, or press Enter to keep '{productToUpdate.IsAvailable}') ");
+      string newAvailability = Console.ReadLine();
+      if (!string.IsNullOrEmpty(newAvailability))
+      {
+          productToUpdate.IsAvailable = newAvailability.ToLower() == "yes";
+      }
+
+      // Update Product Type
+      Console.Write($"Enter new Product Type Name (or press Enter to keep '{productToUpdate.ProductType.Name}'): ");
+      string newTypeName = Console.ReadLine();
+      if (!string.IsNullOrEmpty(newTypeName))
+      {
+          productToUpdate.ProductType.Name = newTypeName;
+      }
+
+      Console.Write($"Enter new Product Type ID (or press Enter to keep {productToUpdate.ProductType.Id}): ");
+      string newTypeIdInput = Console.ReadLine();
+      if (!string.IsNullOrEmpty(newTypeIdInput) && int.TryParse(newTypeIdInput, out int newTypeId))
+      {
+          productToUpdate.ProductType.Id = newTypeId;
+      }
+
+      Console.WriteLine("Product updated successfully!");
+      Console.WriteLine("-----------------------------------");
+  }
+
 
   public static void choice4(List<Products> products)
   {
