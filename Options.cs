@@ -177,7 +177,29 @@ public class MenuFunction
 
   public static void choice5(List<Products> products)
   {
-    Console.WriteLine("5");
+      Console.Write("Enter the Product ID you want to search for: ");
+      if (!int.TryParse(Console.ReadLine(), out int productId))
+      {
+          Console.WriteLine("Invalid Product ID. Please use a numeric value.");
+          return;
+      }
+
+      // Search for the product by ID
+      Products foundProduct = products.Find(p => p.ProductId == productId);
+
+      if (foundProduct != null)
+      {
+          Console.WriteLine("Product Found:");
+          Console.WriteLine($"- Name: {foundProduct.Name}");
+          Console.WriteLine($"- Price: ${foundProduct.Price:F2}");
+          Console.WriteLine($"- Available: {(foundProduct.IsAvailable ? "Yes" : "No")}");
+          Console.WriteLine($"- Product Type: {foundProduct.ProductType.Name} (ID: {foundProduct.ProductType.Id})");
+      }
+      else
+      {
+          Console.WriteLine("No product found with the specified ID.");
+      }
   }//close choice5
+
 
 }// close class 
