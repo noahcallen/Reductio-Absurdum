@@ -26,10 +26,10 @@ public class Program
     //Main Menu
     Console.WriteLine("Welcome To Reductio & Absurdum!");
     Console.WriteLine("=============Main Menu=============");
-    Console.WriteLine(" 1. View All Products \n 2. Add a New Product \n 3. Update a Product \n 4. Remove a Product \n 5. Search By ProductId \n 6. Quit");
+    Console.WriteLine(" 1. View All Products \n 2. Add a New Product \n 3. Update a Product \n 4. Remove a Product \n 5. Search By ProductId \n 6. All Available Products \n 7. Quit");
     Console.WriteLine("===================================");
 
-    Console.Write("Enter a Number 1-6: ");
+    Console.Write("Enter a Number 1-7: ");
     menuFunction.userChoice = int.Parse(Console.ReadLine());
 
     switch (menuFunction.userChoice)
@@ -53,11 +53,15 @@ public class Program
       case 5:
       MenuFunction.choice5(program.products);
       break;
+
+      case 6:
+      MenuFunction.choice6(program.products);
+      break;
     }//close switch
 
     //CLOSE Main Menu
 
-    } while (menuFunction.userChoice != 6);
+    } while (menuFunction.userChoice != 7);
 
   }//close Main
 

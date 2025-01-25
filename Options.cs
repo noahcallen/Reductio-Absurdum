@@ -201,5 +201,17 @@ public class MenuFunction
       }
   }//close choice5
 
+  public static void choice6(List<Products> products)
+  {
+
+    Console.WriteLine("All available products: ");
+    List<Products> unsoldProducts = products.Where(p => p.IsAvailable).ToList();
+
+    foreach (Products product in unsoldProducts)
+    {
+        Console.WriteLine($"- {product.Name}");
+    }
+  }//close choice 6
+
 
 }// close class 
