@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic;
+
 namespace Reductio;
 
 public class Products
@@ -8,7 +10,16 @@ public class Products
   public int ProductId { get; set; }
   public ProductType ProductType { get; set; }
 
+  public DateTime DateStocked { get; set; }
 
+  public int DaysOnShelf
+{
+    get
+    {
+        TimeSpan timeOnShelf = DateTime.Now - DateStocked;
+        return timeOnShelf.Days;
+    }
+}
 }
 
 public class ProductType

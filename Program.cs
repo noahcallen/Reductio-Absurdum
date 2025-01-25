@@ -9,10 +9,10 @@ public class Program
 
    List<Products> products = new List<Products>
   {
-    new Products {Name = "Great Wood", Price = 12.65M, IsAvailable = true, ProductId = 360,ProductType = new ProductType {Name = "Wand", Id = 1}},
-    new Products {Name = "Scary Book", Price = 5.80M, IsAvailable = false, ProductId = 457, ProductType = new ProductType {Name = "Enchanted Item", Id = 2}},
-    new Products {Name = "Thick Liquid", Price = 8.24M, IsAvailable = true, ProductId = 129, ProductType = new ProductType {Name = "Potion", Id = 3}},
-    new Products {Name = "Nice Robe", Price = 34.95M, IsAvailable = true, ProductId = 543, ProductType = new ProductType {Name = "Apparel", Id = 4}}
+    new Products {Name = "Great Wood", Price = 12.65M, IsAvailable = true, ProductId = 360,ProductType = new ProductType {Name = "Wand", Id = 1}, DateStocked = DateTime.Now.AddDays(-3) },
+    new Products {Name = "Scary Book", Price = 5.80M, IsAvailable = false, ProductId = 457, ProductType = new ProductType {Name = "Enchanted Item", Id = 2}, DateStocked = DateTime.Now.AddDays(-345)},
+    new Products {Name = "Thick Liquid", Price = 8.24M, IsAvailable = true, ProductId = 129, ProductType = new ProductType {Name = "Potion", Id = 3}, DateStocked = DateTime.Now.AddDays(-7000)},
+    new Products {Name = "Nice Robe", Price = 34.95M, IsAvailable = true, ProductId = 543, ProductType = new ProductType {Name = "Apparel", Id = 4},DateStocked = DateTime.Now.AddDays(-10)}
   }; 
 
   public static void Main()
